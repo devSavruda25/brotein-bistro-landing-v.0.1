@@ -45,6 +45,8 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
+        <SpeedInsights/>
+        <Analytics/>
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
