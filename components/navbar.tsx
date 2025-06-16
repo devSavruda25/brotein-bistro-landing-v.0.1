@@ -116,7 +116,7 @@ export function Navbar() {
                   onClick={() => setIsGymModalOpen(true)}
                   className="bg-red-500 hover:bg-black text-white transition-all duration-300 hover:shadow-lg hover:shadow-black-500/25"
                 >
-                  Be Gym Partner
+                  Be a Gym Partner
                 </Button>
               </motion.div>
             </div>
@@ -189,7 +189,7 @@ export function Navbar() {
                       }}
                       className="w-full bg-red-500 hover:bg-black text-white"
                     >
-                      Be Gym Partner
+                      Be a Gym Partner
                     </Button>
                   </div>
 
@@ -197,7 +197,7 @@ export function Navbar() {
                   <div className="pt-4 border-t border-gray-200 space-y-2 text-sm text-gray-600">
                     <div className="flex items-center">
                       <Phone className="mr-2 h-4 w-4 text-black" />
-                      <span>+91 98765 43210</span>
+                      <span>+91 99229 69673</span>
                     </div>
                     <div className="flex items-center">
                       <MapPin className="mr-2 h-4 w-4 text-black" />

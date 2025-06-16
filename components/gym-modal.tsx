@@ -31,8 +31,8 @@ export function GymPartnershipModal({ isOpen, onClose }: GymModalProps) {
     operatingHours: "",
     kioskNeeded: "",
     kioskArea: "",
-    haveavendor: "", // Added to formData state
-    vendorName: "", // Added to formData state
+    haveavendor: "",
+    vendorName: "",
     message: "",
   })
 
@@ -116,11 +116,11 @@ export function GymPartnershipModal({ isOpen, onClose }: GymModalProps) {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
             transition={{ duration: 0.3 }}
-            className="relative w-full max-w-5xl h-auto max-h-[95vh] overflow-hidden bg-white rounded-2xl shadow-2xl"
+            className="relative w-full max-w-5xl bg-white rounded-2xl shadow-2xl flex flex-col h-[95vh] sm:h-auto" // Adjusted height for mobile
             onClick={(e) => e.stopPropagation()}
           >
             {/* Header */}
-            <div className="relative bg-gradient-to-r from-green-500 to-green-600 p-6 text-white">
+            <div className="relative bg-gradient-to-r from-green-500 to-green-600 p-6 text-white flex-shrink-0">
               <button
                 onClick={onClose}
                 className="absolute top-4 right-4 p-2 hover:bg-white/20 rounded-full transition-colors duration-200"
@@ -147,8 +147,8 @@ export function GymPartnershipModal({ isOpen, onClose }: GymModalProps) {
               </div>
             </div>
 
-            {/* Form & Stats */}
-            <div className="p-6 overflow-y-auto max-h-[calc(95vh-120px)]">
+            {/* Form & Stats - This is now the scrollable area */}
+            <div className="p-6 overflow-y-auto flex-grow custom-scrollbar"> {/* Added custom-scrollbar */}
               {!formSubmitted ? (
                 <div className="grid lg:grid-cols-2 gap-8">
                   {/* Left Stats */}
@@ -172,11 +172,11 @@ export function GymPartnershipModal({ isOpen, onClose }: GymModalProps) {
                         </motion.div>
                       ))}
                     </div>
-                    
+
                     <div className="space-y-4">
                       <h4 className="font-semibold text-lg">Partnership Benefits:</h4>
                       {features.map((feature, i) => (
-                        <motion.div 
+                        <motion.div
                           key={i}
                           initial={{ opacity: 0, x: -20 }}
                           animate={{ opacity: 1, x: 0 }}
@@ -197,19 +197,19 @@ export function GymPartnershipModal({ isOpen, onClose }: GymModalProps) {
 
                   {/* Right Form */}
                   <form onSubmit={handleSubmit} className="space-y-4">
-                    <div className="grid grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                       <div className="space-y-2">
                         <Label htmlFor="name">Full Name *</Label>
                         <div className="relative">
                           <User className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
-                          <Input 
-                            id="name" 
-                            name="name" 
-                            value={formData.name} 
-                            onChange={handleInputChange} 
-                            placeholder="Your full name" 
-                            className="pl-10 h-11" 
-                            required 
+                          <Input
+                            id="name"
+                            name="name"
+                            value={formData.name}
+                            onChange={handleInputChange}
+                            placeholder="Your full name"
+                            className="pl-10 h-11"
+                            required
                           />
                         </div>
                       </div>
@@ -217,33 +217,33 @@ export function GymPartnershipModal({ isOpen, onClose }: GymModalProps) {
                         <Label htmlFor="email">Email *</Label>
                         <div className="relative">
                           <Mail className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
-                          <Input 
-                            id="email" 
-                            name="email" 
-                            type="email" 
-                            value={formData.email} 
-                            onChange={handleInputChange} 
-                            placeholder="Enter your email" 
-                            className="pl-10 h-11" 
-                            required 
+                          <Input
+                            id="email"
+                            name="email"
+                            type="email"
+                            value={formData.email}
+                            onChange={handleInputChange}
+                            placeholder="Enter your email"
+                            className="pl-10 h-11"
+                            required
                           />
                         </div>
                       </div>
                     </div>
 
-                    <div className="grid grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                       <div className="space-y-2">
                         <Label htmlFor="phone">Phone *</Label>
                         <div className="relative">
                           <Phone className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
-                          <Input 
-                            id="phone" 
-                            name="phone" 
-                            value={formData.phone} 
-                            onChange={handleInputChange} 
-                            placeholder="Enter your phone" 
-                            className="pl-10 h-11" 
-                            required 
+                          <Input
+                            id="phone"
+                            name="phone"
+                            value={formData.phone}
+                            onChange={handleInputChange}
+                            placeholder="Enter your phone"
+                            className="pl-10 h-11"
+                            required
                           />
                         </div>
                       </div>
@@ -251,11 +251,11 @@ export function GymPartnershipModal({ isOpen, onClose }: GymModalProps) {
                         <Label htmlFor="designation">Designation *</Label>
                         <div className="relative">
                           <Briefcase className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
-                          <select 
-                            id="designation" 
-                            name="designation" 
-                            value={formData.designation} 
-                            onChange={handleInputChange} 
+                          <select
+                            id="designation"
+                            name="designation"
+                            value={formData.designation}
+                            onChange={handleInputChange}
                             className="w-full h-11 px-3 pl-10 pr-8 border border-gray-200 rounded-lg focus:border-green-500 focus:ring-green-500 appearance-none"
                             required
                           >
@@ -269,85 +269,82 @@ export function GymPartnershipModal({ isOpen, onClose }: GymModalProps) {
                       </div>
                     </div>
 
-                    <div className="grid grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                       <div className="space-y-2">
                         <Label htmlFor="footfall">Daily Footfall *</Label>
-                        <Input 
-                          id="footfall" 
-                          name="footfall" 
-                          value={formData.footfall} 
-                          onChange={handleInputChange} 
-                          placeholder="Approx. daily visitors" 
-                          className="h-11" 
-                            required 
-
+                        <Input
+                          id="footfall"
+                          name="footfall"
+                          value={formData.footfall}
+                          onChange={handleInputChange}
+                          placeholder="Approx. daily visitors"
+                          className="h-11"
+                          required
                         />
                       </div>
                       <div className="space-y-2">
                         <Label htmlFor="members">Active Members *</Label>
-                        <Input 
-                          id="members" 
-                          name="members" 
-                          value={formData.members} 
-                          onChange={handleInputChange} 
-                          placeholder="Number of members" 
+                        <Input
+                          id="members"
+                          name="members"
+                          value={formData.members}
+                          onChange={handleInputChange}
+                          placeholder="Number of members"
                           className="h-11"
-                            required 
-
+                          required
                         />
                       </div>
                     </div>
-                        <div className="space-y-2">
-                        <Label htmlFor="operatingHours">Operating Hours *</Label>
-                        <div className="relative">
-                          <Clock className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
-                          <Input 
-                            id="operatingHours" 
-                            name="operatingHours" 
-                            value={formData.operatingHours} 
-                            onChange={handleInputChange} 
-                            placeholder="e.g. 6AM-10PM" 
-                            className="pl-10 h-11"
-                            required 
 
-                          />
-                        </div>
-                      </div>
-                    <div className="grid grid-cols-2 gap-4">
-                      <div className="space-y-2">
-                      <Label htmlFor="haveavendor">Do you Have Food Vendor *</Label>
+                    <div className="space-y-2">
+                      <Label htmlFor="operatingHours">Operating Hours *</Label>
                       <div className="relative">
-                        <Store className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
-                        <select
-                          id="haveavendor"
-                          name="haveavendor"
-                          value={formData.haveavendor}
+                        <Clock className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
+                        <Input
+                          id="operatingHours"
+                          name="operatingHours"
+                          value={formData.operatingHours}
                           onChange={handleInputChange}
-                          className="w-full h-11 px-3 pl-10 pr-8 border border-gray-200 rounded-lg focus:border-green-500 focus:ring-green-500 appearance-none"
-                            required 
-
-                        >
-                          {vendorOptions.map((option) => (
-                            <option key={option.value} value={option.value}>
-                              {option.label}
-                            </option>
-                          ))}
-                        </select>
-                        <ChevronDown className="absolute right-3 top-3 h-4 w-4 text-gray-400 pointer-events-none" />
+                          placeholder="e.g. 6AM-10PM"
+                          className="pl-10 h-11"
+                          required
+                        />
                       </div>
                     </div>
+
+                    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                      <div className="space-y-2">
+                        <Label htmlFor="haveavendor">Do you Have Food Vendor *</Label>
+                        <div className="relative">
+                          <Store className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
+                          <select
+                            id="haveavendor"
+                            name="haveavendor"
+                            value={formData.haveavendor}
+                            onChange={handleInputChange}
+                            className="w-full h-11 px-3 pl-10 pr-8 border border-gray-200 rounded-lg focus:border-green-500 focus:ring-green-500 appearance-none"
+                            required
+                          >
+                            {vendorOptions.map((option) => (
+                              <option key={option.value} value={option.value}>
+                                {option.label}
+                              </option>
+                            ))}
+                          </select>
+                          <ChevronDown className="absolute right-3 top-3 h-4 w-4 text-gray-400 pointer-events-none" />
+                        </div>
+                      </div>
                       <div className="space-y-2">
                         <Label htmlFor="kioskNeeded">Kiosk Needed? *</Label>
                         <div className="relative">
                           <Box className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
-                          <select 
-                            id="kioskNeeded" 
-                            name="kioskNeeded" 
-                            value={formData.kioskNeeded} 
-                            onChange={handleInputChange} 
+                          <select
+                            id="kioskNeeded"
+                            name="kioskNeeded"
+                            value={formData.kioskNeeded}
+                            onChange={handleInputChange}
                             className="w-full h-11 px-3 pl-10 pr-8 border border-gray-200 rounded-lg focus:border-green-500 focus:ring-green-500 appearance-none"
-                            required 
-
+                            required
                           >
                             {kioskOptions.map((option) => (
                               <option key={option.value} value={option.value}>
@@ -359,7 +356,8 @@ export function GymPartnershipModal({ isOpen, onClose }: GymModalProps) {
                         </div>
                       </div>
                     </div>
-                            {formData.haveavendor === "Yes" && (
+
+                    {formData.haveavendor === "Yes" && (
                       <div className="space-y-2">
                         <Label htmlFor="vendorName">Vendor Name *</Label>
                         <div className="relative">
@@ -371,49 +369,46 @@ export function GymPartnershipModal({ isOpen, onClose }: GymModalProps) {
                             onChange={handleInputChange}
                             placeholder="Enter Vendor Name"
                             className="pl-10 h-11"
-                            required 
-
+                            required
                           />
                         </div>
                       </div>
                     )}
-                    
 
                     {formData.kioskNeeded === "Yes" && (
                       <div className="space-y-2">
                         <Label htmlFor="kioskArea">Available Area (sq.ft) *</Label>
                         <div className="relative">
-                          <Input 
-                            id="kioskArea" 
-                            name="kioskArea" 
-                            value={formData.kioskArea} 
-                            onChange={handleInputChange} 
-                            placeholder="Approximate area available" 
-                            className="h-11" 
-                            required 
-
+                          <Input
+                            id="kioskArea"
+                            name="kioskArea"
+                            value={formData.kioskArea}
+                            onChange={handleInputChange}
+                            placeholder="Approximate area available"
+                            className="h-11"
+                            required
                           />
                         </div>
                       </div>
                     )}
-                                        
+
                     <div className="space-y-2">
                       <Label htmlFor="message">Additional Details</Label>
                       <div className="relative">
                         <MessageSquare className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
-                        <Textarea 
-                          id="message" 
-                          name="message" 
-                          value={formData.message} 
-                          onChange={handleInputChange} 
-                          placeholder="Tell us about your gym and partnership goals..." 
-                          className="pl-10 min-h-[100px] resize-none" 
+                        <Textarea
+                          id="message"
+                          name="message"
+                          value={formData.message}
+                          onChange={handleInputChange}
+                          placeholder="Tell us about your gym and partnership goals..."
+                          className="pl-10 min-h-[100px] resize-none"
                         />
                       </div>
                     </div>
 
-                    <Button 
-                      type="submit" 
+                    <Button
+                      type="submit"
                       className="w-full h-12 bg-green-500 hover:bg-green-600 text-white font-medium transition-all duration-300 hover:shadow-lg hover:shadow-green-500/25"
                       disabled={isLoading}
                     >
