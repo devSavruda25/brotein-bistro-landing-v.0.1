@@ -1,7 +1,7 @@
 "use client"
 
 import type React from "react"
-
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import { useState, useEffect, useRef } from "react"
 import Image from "next/image"
 import Link from "next/link"
