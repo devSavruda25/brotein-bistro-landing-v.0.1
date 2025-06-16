@@ -271,7 +271,7 @@ export function FranchiseModal({ isOpen, onClose }: FranchiseModalProps) {
                     </div>
 
                     <div className="space-y-2">
-                      <Label htmlFor="interestType">You're applying for?</Label>
+                      <Label htmlFor="interestType">Be Partner Now</Label>
                       <select 
                         id="interestType" 
                         name="interestType" 
