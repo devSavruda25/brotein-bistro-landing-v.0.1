@@ -9,11 +9,13 @@ import { FranchiseModal } from "@/components/franchise-modal"
 import { cn } from "@/lib/utils"
 import Image from 'next/image';
 import { GymPartnershipModal } from "@/components/gym-modal"
+
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
   const [isFranchiseModalOpen, setIsFranchiseModalOpen] = useState(false)
   const [isGymModalOpen, setIsGymModalOpen] = useState(false)
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50)
@@ -28,7 +30,6 @@ export function Navbar() {
     { href: "#about", label: "Why Us" },
     { href: "#plans", label: "Meal Plans" },
     { href: "#locations", label: "Locations" },
-
   ]
 
   return (
@@ -43,55 +44,55 @@ export function Navbar() {
         )}
       >
         <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between h-16 lg:h-20">
+          <div className="flex items-center justify-between h-16 lg:h-20 relative"> {/* Added 'relative' here */}
             {/* Logo */}
-            <motion.div whileHover={{ scale: 1.05 }} className="flex items-center space-x-2">
+            <motion.div whileHover={{ scale: 1.05 }} className="flex items-center space-x-2 z-10"> {/* Added z-10 */}
               <Link href="/" className="flex items-center space-x-2">
                 <div className="flex items-center justify-center">
                   <Image
                     src="/Brotein Bistro.png"
                     alt="Brotein Bistro Logo"
-                    width={150} // increased size
+                    width={150}
                     height={150}
                     loading="lazy"
                     className="w-20 h-20 lg:w-24 lg:h-24 object-contain"
                   />
                 </div>
-               
               </Link>
             </motion.div>
 
-            {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center space-x-8">
-              {navLinks.map((link, index) => (
-                <motion.div
-                  key={link.href}
-                  initial={{ opacity: 0, y: -20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                >
-                  <Link
-                    href={link.href}
-                    className={cn(
-                      "relative font-medium transition-colors duration-200 hover:text-red-500 group",
-                      isScrolled ? "text-gray-700" : "text-white/90",
-                    )}
+            {/* Desktop Navigation - Centered using absolute positioning */}
+            <div className="hidden lg:flex absolute inset-0 justify-center items-center"> {/* Key change here */}
+              <div className="flex space-x-8">
+                {navLinks.map((link, index) => (
+                  <motion.div
+                    key={link.href}
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: index * 0.1 }}
                   >
-                    {link.label}
-                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-red-500 transition-all duration-300 group-hover:w-full" />
-                  </Link>
-                </motion.div>
-              ))}
+                    <Link
+                      href={link.href}
+                      className={cn(
+                        "relative font-medium transition-colors duration-200 hover:text-red-500 group",
+                        isScrolled ? "text-gray-700" : "text-white/90",
+                      )}
+                    >
+                      {link.label}
+                      <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-red-500 transition-all duration-300 group-hover:w-full" />
+                    </Link>
+                  </motion.div>
+                ))}
+              </div>
             </div>
 
             {/* Desktop CTA Buttons */}
-            <div className="hidden lg:flex items-center space-x-4">
+            <div className="hidden lg:flex items-center space-x-4 z-10"> {/* Added z-10 */}
               <motion.div
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
               >
-
               </motion.div>
 
               <motion.div
@@ -115,7 +116,7 @@ export function Navbar() {
                   onClick={() => setIsGymModalOpen(true)}
                   className="bg-red-500 hover:bg-black text-white transition-all duration-300 hover:shadow-lg hover:shadow-black-500/25"
                 >
-                  Be Gym Partner 
+                  Be Gym Partner
                 </Button>
               </motion.div>
             </div>
@@ -134,7 +135,7 @@ export function Navbar() {
           </div>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile Menu (remains unchanged) */}
         <AnimatePresence>
           {isOpen && (
             <motion.div
@@ -214,10 +215,9 @@ export function Navbar() {
         </AnimatePresence>
       </motion.nav>
 
-      {/* Franchise Modal */}
+      {/* Modals */}
       <FranchiseModal isOpen={isFranchiseModalOpen} onClose={() => setIsFranchiseModalOpen(false)} />
-        <GymPartnershipModal isOpen={isGymModalOpen} onClose={() => setIsGymModalOpen(false)} />
-        
+      <GymPartnershipModal isOpen={isGymModalOpen} onClose={() => setIsGymModalOpen(false)} />
     </>
   )
 }
