@@ -1113,7 +1113,7 @@ export default function Home() {
                 phone: "+91 99229 69673",
                 hours: "11:00 AM - 01:00 PM",
                 mapSrc:
-                  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14254.688675337753!2d73.75082054786162!3d20.00102625245205!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bddeb207349b67f%3A0x198e4953e544c7e2!2sBrotein%20Bistro%20(Best%20Healthy%20Food%20Restaurant%20In%20Nashik)!5e1!3m2!1sen!2sin!4v1749645505181!5m2!1sen!2sin",
+                 "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14254.688675337753!2d73.75082054786162!3d20.00102625245205!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bddebed1e7e2049%3A0x506dc7717525b02a!2sBrotein%20Bistro%20CCM%20(Best%20Healthy%20Food%20In%20Nashik)!5e1!3m2!1sen!2sin!4v1749645525421!5m2!1sen!2sin" ,
               },
               {
                 name: "Gangapur Road Branch",
@@ -1121,7 +1121,7 @@ export default function Home() {
                 phone: "+91 99229 69673",
                 hours: "9:00 AM - 10:30 PM",
                 mapSrc:
-                  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14254.688675337753!2d73.75082054786162!3d20.00102625245205!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bddebed1e7e2049%3A0x506dc7717525b02a!2sBrotein%20Bistro%20CCM%20(Best%20Healthy%20Food%20In%20Nashik)!5e1!3m2!1sen!2sin!4v1749645525421!5m2!1sen!2sin",
+                  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14254.688675337753!2d73.75082054786162!3d20.00102625245205!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bddeb207349b67f%3A0x198e4953e544c7e2!2sBrotein%20Bistro%20(Best%20Healthy%20Food%20Restaurant%20In%20Nashik)!5e1!3m2!1sen!2sin!4v1749645505181!5m2!1sen!2sin",
               },
             ].map((location, index) => (
               <motion.div
