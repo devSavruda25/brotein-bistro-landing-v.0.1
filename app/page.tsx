@@ -343,7 +343,7 @@ export default function Home() {
         <div ref={heroInViewRef} className="absolute inset-0 z-0">
           <motion.div style={{ scale: heroScale, opacity: heroOpacity, y: heroY }} className="relative h-full w-full">
             <Image
-              src="https://drive.google.com/file/d/1-gqR8IJKfRAna56ulxL9mW1YWq3sggod/view?usp=drive_link"
+              src="https://res.cloudinary.com/dttagqqne/image/upload/v1750061686/hero_nxe49t.jpg"
               alt="Protein bowl background"
               fill
               className="object-cover"
