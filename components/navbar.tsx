@@ -8,12 +8,12 @@ import { Button } from "@/components/ui/button"
 import { FranchiseModal } from "@/components/franchise-modal"
 import { cn } from "@/lib/utils"
 import Image from 'next/image';
-import logo from "@/public/logo.png"; // Adjust the path as necessary
+import { GymPartnershipModal } from "@/components/gym-modal"
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
   const [isFranchiseModalOpen, setIsFranchiseModalOpen] = useState(false)
-
+  const [isGymModalOpen, setIsGymModalOpen] = useState(false)
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50)
@@ -106,6 +106,18 @@ export function Navbar() {
                   Get Franchise
                 </Button>
               </motion.div>
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+              >
+                <Button
+                  onClick={() => setIsGymModalOpen(true)}
+                  className="bg-red-500 hover:bg-black text-white transition-all duration-300 hover:shadow-lg hover:shadow-black-500/25"
+                >
+                  Be Gym Partner 
+                </Button>
+              </motion.div>
             </div>
 
             {/* Mobile Menu Button */}
@@ -169,6 +181,15 @@ export function Navbar() {
                     >
                       Get Franchise
                     </Button>
+                    <Button
+                      onClick={() => {
+                        setIsGymModalOpen(true)
+                        setIsOpen(false)
+                      }}
+                      className="w-full bg-red-500 hover:bg-black text-white"
+                    >
+                      Be Gym Partner
+                    </Button>
                   </div>
 
                   {/* Contact Info in Mobile Menu */}
@@ -195,6 +216,8 @@ export function Navbar() {
 
       {/* Franchise Modal */}
       <FranchiseModal isOpen={isFranchiseModalOpen} onClose={() => setIsFranchiseModalOpen(false)} />
+        <GymPartnershipModal isOpen={isGymModalOpen} onClose={() => setIsGymModalOpen(false)} />
+        
     </>
   )
 }

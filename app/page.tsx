@@ -51,6 +51,7 @@ import { MealLoader } from "@/components/meal-loader"
 // import dish3 from "@/public/burgar.jpg"
 // import dish4 from "@/public/creamy makhani meal bowl.jpg"
 import { FranchiseModal } from "@/components/franchise-modal"
+import { GymPartnershipModal } from "@/components/gym-modal"
 
 // import maleuser from "@/public/maleuser.png"
 // import femaleuser from "@/public/femaleuser.png"
@@ -61,6 +62,7 @@ export default function Home() {
   const [formSubmitted, setFormSubmitted] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isFranchiseOpen, setIsFranchiseOpen] = useState(false)
+  const [isGymModalOpen, setIsGymModalOpen] = useState(false)
 
 
   const heroRef = useRef(null)
@@ -1000,7 +1002,7 @@ export default function Home() {
                     </div>
                   </motion.div>
                 )}
-
+{/*  */}
                 {plan.savings && (
                   <motion.div
                     className="absolute top-4 right-4 z-10"
@@ -1252,7 +1254,7 @@ export default function Home() {
                     onClick={() => setIsFranchiseOpen(true)}
                     className="text-left text-gray-400 hover:text-white transition-colors duration-200 w-full"
                   >
-                    Franchise
+                   Get Franchise
                   </button>
                 </motion.li>
               </ul>
@@ -1361,6 +1363,7 @@ export default function Home() {
           </motion.div>
         </div>
         <FranchiseModal isOpen={isFranchiseOpen} onClose={() => setIsFranchiseOpen(false)} />
+          <GymPartnershipModal isOpen={isGymModalOpen} onClose={() => setIsGymModalOpen(false)} />
 
       </footer>
     </div>
