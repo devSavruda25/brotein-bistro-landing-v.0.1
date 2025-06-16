@@ -435,7 +435,7 @@ export default function Home() {
 
                 {/* Explore Menu Button */}
                 <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="w-full sm:w-auto">
-                  <Link href="/menu" passHref>
+                  <Link href="http://order.broteinbistro.com" passHref>
                   <Button
                     size="lg"
                     className="bg-red-500 hover:bg-black text-white rounded-full px-6 py-3 text-lg w-full group relative overflow-hidden transition-all duration-300 hover:shadow-lg hover:bg-transparent hover:border-white hover:border-2"
@@ -459,7 +459,7 @@ export default function Home() {
                     className="bg-transparent border border-white hover:bg-red-500 text-white hover:border-transparent rounded-full px-6 py-3 text-lg w-full group relative overflow-hidden transition-all duration-300"
                   >
                     <Phone className="w-6 h-6 mr-2" />
-                    <span className="relative z-10">Order Now</span>
+                    <span className="relative z-10"><Link href="/"> Order Now</Link></span>
                     <motion.div
                       className="absolute inset-0 bg-white/20"
                       initial={{ scale: 0, opacity: 0 }}
@@ -1296,7 +1296,7 @@ export default function Home() {
                   {
                     name: "Brotein Bistro",
                     logo: "https://www.uengage.in/images/addo/logos/logo-58949-1749106970.jpeg",
-                    link: "/"
+                    link: "http://order.broteinbistro.com/"
                   },
                   {
                     name: "Swiggy",

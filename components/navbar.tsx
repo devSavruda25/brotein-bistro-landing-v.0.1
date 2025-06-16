@@ -165,13 +165,13 @@ export function Navbar() {
                   ))}
 
                   <div className="pt-4 border-t border-gray-200 space-y-3">
-                    <Button
+                    <Link href="http://order.broteinbistro.com/"><Button
                       variant="outline"
                       className="w-full border-red-500 text-red-500 hover:bg-black hover:text-white"
                     >
                       <Phone className="mr-2 h-4 w-4" />
                       Order Now
-                    </Button>
+                    </Button></Link>
 
                     <Button
                       onClick={() => {
