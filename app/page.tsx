@@ -153,83 +153,83 @@ export default function Home() {
   ]
 
   const plans = [
-  {
-    name: "Base Plan",
-    price: "₹6,899",
-    duration: "40 Days",
-    meals: "30 Meals",
-    features: [
-      "100g Protein Quantity",
-      "30g Guaranteed Protein",
-      "Meal Option (Veg / Non-Veg)",
-      "Veg Choice: Paneer / Tofu / Chickpea",
-      "Non-Veg: Chicken (Included)",
-      "Other non-veg (Basa, Prawns) is chargeable",
-      "Free delivery up to 4 km",
-      "Dine-in option FREE",
-      "2 Meals/day upgrade available at ₹11,999",
-    ],
-    popular: false,
-    savings: "1 Meal/day",
-  },
-  {
-    name: "Standard Plan",
-    price: "₹7,899",
-    duration: "40 Days",
-    meals: "30 Meals",
-    features: [
-      "150g Protein Quantity",
-      "45g Guaranteed Protein",
-      "Meal Option (Veg / Non-Veg)",
-      "Veg Choice: Paneer / Tofu / Chickpea",
-      "Non-Veg: Chicken (Included)",
-      "Other non-veg (Basa, Prawns) is chargeable",
-      "Free delivery up to 4 km",
-      "Dine-in option FREE",
-      "2 Meals/day upgrade available at ₹14,499",
-    ],
-    popular: false,
-    savings: "1 Meal/day",
-  },
-  {
-    name: "Premium Plan",
-    price: "₹8,899",
-    duration: "40 Days",
-    meals: "30 Meals",
-    features: [
-      "200g Protein Quantity",
-      "60g Guaranteed Protein",
-      "Meal Option (Veg / Non-Veg)",
-      "Veg Choice: Paneer / Tofu / Chickpea",
-      "Non-Veg: Chicken (Included)",
-      "Other non-veg (Basa, Prawns) is chargeable",
-      "Free delivery up to 4 km",
-      "Dine-in option FREE",
-      "2 Meals/day upgrade available at ₹15,999",
-    ],
-    popular: false,
-    savings: "1 Meal/day",
-  },
-  {
-    name: "Elite Plan",
-    price: "₹9,999",
-    duration: "40 Days",
-    meals: "30 Meals",
-    features: [
-      "250g Protein Quantity",
-      "65g Guaranteed Protein",
-      "Meal Option (Veg / Non-Veg)",
-      "Veg Choice: Paneer / Tofu / Chickpea",
-      "Non-Veg: Chicken (Included)",
-      "Other non-veg (Basa, Prawns) is chargeable",
-      "Free delivery up to 4 km",
-      "Dine-in option FREE",
-      "2 Meals/day upgrade available at ₹18,999",
-    ],
-    popular: false,
-    savings: "1 Meal/day",
-  },
-];
+    {
+      name: "Base Plan",
+      price: "₹6,899",
+      duration: "40 Days",
+      meals: "30 Meals",
+      features: [
+        "100g Protein Quantity",
+        "30g Guaranteed Protein",
+        "Meal Option (Veg / Non-Veg)",
+        "Veg Choice: Paneer / Tofu / Chickpea",
+        "Non-Veg: Chicken (Included)",
+        "Other non-veg (Basa, Prawns) is chargeable",
+        "Free delivery up to 4 km",
+        "Dine-in option FREE",
+        "2 Meals/day upgrade available at ₹11,999",
+      ],
+      popular: false,
+      savings: "1 Meal/day",
+    },
+    {
+      name: "Standard Plan",
+      price: "₹7,899",
+      duration: "40 Days",
+      meals: "30 Meals",
+      features: [
+        "150g Protein Quantity",
+        "45g Guaranteed Protein",
+        "Meal Option (Veg / Non-Veg)",
+        "Veg Choice: Paneer / Tofu / Chickpea",
+        "Non-Veg: Chicken (Included)",
+        "Other non-veg (Basa, Prawns) is chargeable",
+        "Free delivery up to 4 km",
+        "Dine-in option FREE",
+        "2 Meals/day upgrade available at ₹14,499",
+      ],
+      popular: false,
+      savings: "1 Meal/day",
+    },
+    {
+      name: "Premium Plan",
+      price: "₹8,899",
+      duration: "40 Days",
+      meals: "30 Meals",
+      features: [
+        "200g Protein Quantity",
+        "60g Guaranteed Protein",
+        "Meal Option (Veg / Non-Veg)",
+        "Veg Choice: Paneer / Tofu / Chickpea",
+        "Non-Veg: Chicken (Included)",
+        "Other non-veg (Basa, Prawns) is chargeable",
+        "Free delivery up to 4 km",
+        "Dine-in option FREE",
+        "2 Meals/day upgrade available at ₹15,999",
+      ],
+      popular: false,
+      savings: "1 Meal/day",
+    },
+    {
+      name: "Elite Plan",
+      price: "₹9,999",
+      duration: "40 Days",
+      meals: "30 Meals",
+      features: [
+        "250g Protein Quantity",
+        "65g Guaranteed Protein",
+        "Meal Option (Veg / Non-Veg)",
+        "Veg Choice: Paneer / Tofu / Chickpea",
+        "Non-Veg: Chicken (Included)",
+        "Other non-veg (Basa, Prawns) is chargeable",
+        "Free delivery up to 4 km",
+        "Dine-in option FREE",
+        "2 Meals/day upgrade available at ₹18,999",
+      ],
+      popular: false,
+      savings: "1 Meal/day",
+    },
+  ];
 
 
   const aboutFeatures = [
@@ -436,24 +436,24 @@ export default function Home() {
                 {/* Explore Menu Button */}
                 <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="w-full sm:w-auto">
                   <Link href="http://order.broteinbistro.com" passHref>
-                  <Button
-                    size="lg"
-                    className="bg-red-500 hover:bg-black text-white rounded-full px-6 py-3 text-lg w-full group relative overflow-hidden transition-all duration-300 hover:shadow-lg hover:bg-transparent hover:border-white hover:border-2"
-                  >
-                    <span className="relative z-10">Explore Menu</span>
-                    <motion.div
-                      className="absolute inset-0 bg-white/20"
-                      initial={{ scale: 0, opacity: 0 }}
-                      whileHover={{ scale: 1, opacity: 1 }}
-                      transition={{ duration: 0.3 }}
-                    />
-                    <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                  </Button></Link>
+                    <Button
+                      size="lg"
+                      className="bg-red-500 hover:bg-black text-white rounded-full px-6 py-3 text-lg w-full group relative overflow-hidden transition-all duration-300 hover:shadow-lg hover:bg-transparent hover:border-white hover:border-2"
+                    >
+                      <span className="relative z-10">Explore Menu</span>
+                      <motion.div
+                        className="absolute inset-0 bg-white/20"
+                        initial={{ scale: 0, opacity: 0 }}
+                        whileHover={{ scale: 1, opacity: 1 }}
+                        transition={{ duration: 0.3 }}
+                      />
+                      <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                    </Button></Link>
                 </motion.div>
 
                 {/* Order Now Button */}
                 <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="w-full sm:w-auto">
-                  
+
                   <Button
                     size="lg"
                     className="bg-transparent border border-white hover:bg-red-500 text-white hover:border-transparent rounded-full px-6 py-3 text-lg w-full group relative overflow-hidden transition-all duration-300"
@@ -773,22 +773,22 @@ export default function Home() {
 
             {/* Enhanced navigation buttons */}
             <motion.button
-  onClick={prevDish}
-  className="hidden md:flex absolute left-4 top-1/2 transform -translate-y-1/2 bg-white shadow-xl rounded-full p-4 md:p-4 p-2 hover:bg-gray-50 transition-all duration-300 hover:scale-110 z-10"
-  whileHover={{ scale: 1.1 }}
-  whileTap={{ scale: 0.9 }}
->
-  <ChevronLeft className="h-6 w-6 md:h-6 md:w-6 h-4 w-4 text-gray-700" />
-</motion.button>
+              onClick={prevDish}
+              className="hidden md:flex absolute left-4 top-1/2 transform -translate-y-1/2 bg-white shadow-xl rounded-full p-4 md:p-4 p-2 hover:bg-gray-50 transition-all duration-300 hover:scale-110 z-10"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              <ChevronLeft className="h-6 w-6 md:h-6 md:w-6 h-4 w-4 text-gray-700" />
+            </motion.button>
 
-<motion.button
-  onClick={nextDish}
-  className="hidden md:flex absolute right-4 top-1/2 transform -translate-y-1/2 bg-white shadow-xl rounded-full p-4 md:p-4 p-2 hover:bg-gray-50 transition-all duration-300 hover:scale-110 z-10"
-  whileHover={{ scale: 1.1 }}
-  whileTap={{ scale: 0.9 }}
->
-  <ChevronRight className="h-6 w-6 md:h-6 md:w-6 h-4 w-4 text-gray-700" />
-</motion.button>
+            <motion.button
+              onClick={nextDish}
+              className="hidden md:flex absolute right-4 top-1/2 transform -translate-y-1/2 bg-white shadow-xl rounded-full p-4 md:p-4 p-2 hover:bg-gray-50 transition-all duration-300 hover:scale-110 z-10"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              <ChevronRight className="h-6 w-6 md:h-6 md:w-6 h-4 w-4 text-gray-700" />
+            </motion.button>
 
 
             {/* Enhanced dots indicator */}
@@ -936,147 +936,147 @@ export default function Home() {
 
       {/* Enhanced Meal Plans */}
       <section id="plans" ref={plansRef} className="py-20 bg-white relative overflow-hidden">
-  <div className="absolute top-0 left-0 w-64 h-64 bg-yellow-50 rounded-full -translate-y-32 -translate-x-32 opacity-50" />
+        <div className="absolute top-0 left-0 w-64 h-64 bg-yellow-50 rounded-full -translate-y-32 -translate-x-32 opacity-50" />
 
-  <div className="container relative z-10">
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      animate={plansInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-      transition={{ duration: 0.8 }}
-      className="text-center mb-12"
-    >
-      <motion.div
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={plansInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
-        transition={{ duration: 0.6, delay: 0.2 }}
-        className="inline-flex items-center bg-yellow-50 px-4 py-2 rounded-full mb-4"
-      >
-        <Award className="h-4 w-4 text-yellow-500 mr-2" />
-        <span className="text-yellow-700 font-medium">Flexible Plans</span>
-      </motion.div>
-
-      <h2 className="text-4xl md:text-5xl font-bold mb-6">
-        Choose Your <span className="text-red-500">Meal Plan</span>
-      </h2>
-      <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-        Flexible plans designed to fit your lifestyle and fitness goals
-      </p>
-    </motion.div>
-
-    <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-      {plans.map((plan, index) => {
-        const isLastSingle = plans.length % 3 === 1 && index === plans.length - 1;
-        return (
+        <div className="container relative z-10">
           <motion.div
-            key={plan.name}
             initial={{ opacity: 0, y: 30 }}
             animate={plansInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-            transition={{ duration: 0.8, delay: index * 0.1 }}
-            className={cn("relative", isLastSingle ? "md:col-span-1 md:col-start-2" : "")}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-12"
           >
-            <motion.div whileHover={{ y: -10, scale: 1.02 }} transition={{ duration: 0.3 }}>
-              <Card
-                className={cn(
-                  "overflow-hidden transition-all duration-500 hover:shadow-2xl relative",
-                  plan.popular
-                    ? "border-green-500 shadow-xl scale-105 ring-2 ring-green-200"
-                    : "shadow-lg hover:shadow-xl"
-                )}
-              >
-                {plan.popular && (
-                  <motion.div
-                    className="absolute top-0 left-0 right-0"
-                    initial={{ y: -20, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ delay: 0.3 }}
-                  >
-                    <div className="bg-gradient-to-r from-green-500 to-green-600 text-white text-center py-3 text-sm font-medium relative overflow-hidden">
-                      <motion.div
-                        className="absolute inset-0 bg-white/20"
-                        animate={{ x: ["-100%", "100%"] }}
-                        transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, repeatDelay: 3 }}
-                      />
-                      <span className="relative z-10 flex items-center justify-center">
-                        <Sparkles className="mr-2 h-4 w-4" />
-                        Most Popular Choice
-                      </span>
-                    </div>
-                  </motion.div>
-                )}
-{/*  */}
-                {plan.savings && (
-                  <motion.div
-                    className="absolute top-4 right-4 z-10"
-                    initial={{ scale: 0, rotate: -180 }}
-                    animate={{ scale: 1, rotate: 0 }}
-                    transition={{ delay: 0.5, type: "spring" }}
-                  >
-                    <Badge className="bg-orange-500 text-white shadow-lg">{plan.savings}</Badge>
-                  </motion.div>
-                )}
-
-                <CardContent className={cn("p-8 relative", plan.popular ? "pt-16" : "")}>
-                  {plan.popular && (
-                    <div className="absolute inset-0 bg-gradient-to-br from-green-50 to-blue-50 opacity-30" />
-                  )}
-
-                  <div className="relative z-10">
-                    <div className="text-center mb-8">
-                      <motion.h3
-                        className="text-2xl font-bold mb-2"
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={plansInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
-                        transition={{ delay: 0.3 + index * 0.1 }}
-                      >
-                        {plan.name}
-                      </motion.h3>
-
-                      <motion.div
-                        className="text-4xl font-bold text-red-500 mb-1"
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={plansInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
-                        transition={{ delay: 0.4 + index * 0.1 }}
-                      >
-                        {plan.price}
-                      </motion.div>
-
-                      <div className="text-gray-500">
-                        {plan.duration} • {plan.meals}
-                      </div>
-                    </div>
-
-                    <ul className="space-y-4 mb-8">
-                      {plan.features.map((feature, featureIndex) => (
-                        <motion.li
-                          key={featureIndex}
-                          className="flex items-center"
-                          initial={{ opacity: 0, x: -10 }}
-                          animate={plansInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -10 }}
-                          transition={{
-                            delay: 0.5 + index * 0.1 + featureIndex * 0.05,
-                          }}
-                        >
-                          <motion.div whileHover={{ scale: 1.2, rotate: 360 }} transition={{ duration: 0.3 }}>
-                            <CheckCircle className="h-5 w-5 text-red-500 mr-3 flex-shrink-0" />
-                          </motion.div>
-                          <span className="text-gray-600">{feature}</span>
-                        </motion.li>
-                      ))}
-                    </ul>
-
-                    <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                      {/* Add button or call to action here if needed */}
-                    </motion.div>
-                  </div>
-                </CardContent>
-              </Card>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={plansInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="inline-flex items-center bg-yellow-50 px-4 py-2 rounded-full mb-4"
+            >
+              <Award className="h-4 w-4 text-yellow-500 mr-2" />
+              <span className="text-yellow-700 font-medium">Flexible Plans</span>
             </motion.div>
+
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              Choose Your <span className="text-red-500">Meal Plan</span>
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Flexible plans designed to fit your lifestyle and fitness goals
+            </p>
           </motion.div>
-        );
-      })}
-    </div>
-  </div>
-</section>
+
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {plans.map((plan, index) => {
+              const isLastSingle = plans.length % 3 === 1 && index === plans.length - 1;
+              return (
+                <motion.div
+                  key={plan.name}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={plansInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+                  transition={{ duration: 0.8, delay: index * 0.1 }}
+                  className={cn("relative", isLastSingle ? "md:col-span-1 md:col-start-2" : "")}
+                >
+                  <motion.div whileHover={{ y: -10, scale: 1.02 }} transition={{ duration: 0.3 }}>
+                    <Card
+                      className={cn(
+                        "overflow-hidden transition-all duration-500 hover:shadow-2xl relative",
+                        plan.popular
+                          ? "border-green-500 shadow-xl scale-105 ring-2 ring-green-200"
+                          : "shadow-lg hover:shadow-xl"
+                      )}
+                    >
+                      {plan.popular && (
+                        <motion.div
+                          className="absolute top-0 left-0 right-0"
+                          initial={{ y: -20, opacity: 0 }}
+                          animate={{ y: 0, opacity: 1 }}
+                          transition={{ delay: 0.3 }}
+                        >
+                          <div className="bg-gradient-to-r from-green-500 to-green-600 text-white text-center py-3 text-sm font-medium relative overflow-hidden">
+                            <motion.div
+                              className="absolute inset-0 bg-white/20"
+                              animate={{ x: ["-100%", "100%"] }}
+                              transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, repeatDelay: 3 }}
+                            />
+                            <span className="relative z-10 flex items-center justify-center">
+                              <Sparkles className="mr-2 h-4 w-4" />
+                              Most Popular Choice
+                            </span>
+                          </div>
+                        </motion.div>
+                      )}
+                      {/*  */}
+                      {plan.savings && (
+                        <motion.div
+                          className="absolute top-4 right-4 z-10"
+                          initial={{ scale: 0, rotate: -180 }}
+                          animate={{ scale: 1, rotate: 0 }}
+                          transition={{ delay: 0.5, type: "spring" }}
+                        >
+                          <Badge className="bg-orange-500 text-white shadow-lg">{plan.savings}</Badge>
+                        </motion.div>
+                      )}
+
+                      <CardContent className={cn("p-8 relative", plan.popular ? "pt-16" : "")}>
+                        {plan.popular && (
+                          <div className="absolute inset-0 bg-gradient-to-br from-green-50 to-blue-50 opacity-30" />
+                        )}
+
+                        <div className="relative z-10">
+                          <div className="text-center mb-8">
+                            <motion.h3
+                              className="text-2xl font-bold mb-2"
+                              initial={{ opacity: 0, y: 10 }}
+                              animate={plansInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
+                              transition={{ delay: 0.3 + index * 0.1 }}
+                            >
+                              {plan.name}
+                            </motion.h3>
+
+                            <motion.div
+                              className="text-4xl font-bold text-red-500 mb-1"
+                              initial={{ opacity: 0, scale: 0.8 }}
+                              animate={plansInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+                              transition={{ delay: 0.4 + index * 0.1 }}
+                            >
+                              {plan.price}
+                            </motion.div>
+
+                            <div className="text-gray-500">
+                              {plan.duration} • {plan.meals}
+                            </div>
+                          </div>
+
+                          <ul className="space-y-4 mb-8">
+                            {plan.features.map((feature, featureIndex) => (
+                              <motion.li
+                                key={featureIndex}
+                                className="flex items-center"
+                                initial={{ opacity: 0, x: -10 }}
+                                animate={plansInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -10 }}
+                                transition={{
+                                  delay: 0.5 + index * 0.1 + featureIndex * 0.05,
+                                }}
+                              >
+                                <motion.div whileHover={{ scale: 1.2, rotate: 360 }} transition={{ duration: 0.3 }}>
+                                  <CheckCircle className="h-5 w-5 text-red-500 mr-3 flex-shrink-0" />
+                                </motion.div>
+                                <span className="text-gray-600">{feature}</span>
+                              </motion.li>
+                            ))}
+                          </ul>
+
+                          <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                            {/* Add button or call to action here if needed */}
+                          </motion.div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </motion.div>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
 
 
       {/* Enhanced Find Us Map Section */}
@@ -1116,7 +1116,7 @@ export default function Home() {
                 phone: "+91 99229 69673",
                 hours: "11:00 AM - 01:00 PM",
                 mapSrc:
-                 "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14254.688675337753!2d73.75082054786162!3d20.00102625245205!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bddebed1e7e2049%3A0x506dc7717525b02a!2sBrotein%20Bistro%20CCM%20(Best%20Healthy%20Food%20In%20Nashik)!5e1!3m2!1sen!2sin!4v1749645525421!5m2!1sen!2sin" ,
+                  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14254.688675337753!2d73.75082054786162!3d20.00102625245205!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bddebed1e7e2049%3A0x506dc7717525b02a!2sBrotein%20Bistro%20CCM%20(Best%20Healthy%20Food%20In%20Nashik)!5e1!3m2!1sen!2sin!4v1749645525421!5m2!1sen!2sin",
               },
               {
                 name: "Gangapur Road Branch",
@@ -1255,9 +1255,19 @@ export default function Home() {
                     onClick={() => setIsFranchiseOpen(true)}
                     className="text-left text-gray-400 hover:text-white transition-colors duration-200 w-full"
                   >
-                   Get Franchise
+                    Get Franchise
                   </button>
                 </motion.li>
+                
+                  <motion.li whileHover={{ x: 5 }} transition={{ duration: 0.2 }}><Link href="/privacy-policy">
+                    <button
+                      className="text-left text-gray-400 hover:text-white transition-colors duration-200 w-full"
+                    >
+                      Privacy Policy
+                    </button></Link>
+                  </motion.li>
+                
+
               </ul>
 
 
@@ -1364,7 +1374,7 @@ export default function Home() {
           </motion.div>
         </div>
         <FranchiseModal isOpen={isFranchiseOpen} onClose={() => setIsFranchiseOpen(false)} />
-          <GymPartnershipModal isOpen={isGymModalOpen} onClose={() => setIsGymModalOpen(false)} />
+        <GymPartnershipModal isOpen={isGymModalOpen} onClose={() => setIsGymModalOpen(false)} />
 
       </footer>
     </div>

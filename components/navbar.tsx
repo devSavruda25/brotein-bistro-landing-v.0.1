@@ -2,19 +2,20 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
+import { usePathname, useRouter } from "next/navigation"
 import { motion, AnimatePresence } from "framer-motion"
-import { Menu, X, Phone, MapPin, Clock } from "lucide-react"
+import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { FranchiseModal } from "@/components/franchise-modal"
 import { cn } from "@/lib/utils"
-import Image from 'next/image';
-import { GymPartnershipModal } from "@/components/gym-modal"
+import Image from 'next/image'
 
 export function Navbar() {
+  const pathname = usePathname()
+  const router = useRouter()
+  const isPrivacyPage = pathname === "/privacy-policy"
+
   const [isOpen, setIsOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
-  const [isFranchiseModalOpen, setIsFranchiseModalOpen] = useState(false)
-  const [isGymModalOpen, setIsGymModalOpen] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,103 +26,49 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  const navLinks = [
-    { href: "/", label: "Home" },
-    { href: "#about", label: "Why Us" },
-    { href: "#plans", label: "Meal Plans" },
-    { href: "#locations", label: "Locations" },
-  ]
-
   return (
-    <>
-      <motion.nav
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-        className={cn(
-          "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-          isScrolled ? "bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-100" : "bg-transparent",
-        )}
-      >
-        <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between h-16 lg:h-20 relative"> {/* Added 'relative' here */}
-            {/* Logo */}
-            <motion.div whileHover={{ scale: 1.05 }} className="flex items-center space-x-2 z-10"> {/* Added z-10 */}
-              <Link href="/" className="flex items-center space-x-2">
-                <div className="flex items-center justify-center">
-                  <Image
-                    src="/Brotein Bistro.png"
-                    alt="Brotein Bistro Logo"
-                    width={150}
-                    height={150}
-                    loading="lazy"
-                    className="w-20 h-20 lg:w-24 lg:h-24 object-contain"
-                  />
-                </div>
-              </Link>
-            </motion.div>
-
-            {/* Desktop Navigation - Centered using absolute positioning */}
-            <div className="hidden lg:flex absolute inset-0 justify-center items-center"> {/* Key change here */}
-              <div className="flex space-x-8">
-                {navLinks.map((link, index) => (
-                  <motion.div
-                    key={link.href}
-                    initial={{ opacity: 0, y: -20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: index * 0.1 }}
-                  >
-                    <Link
-                      href={link.href}
-                      className={cn(
-                        "relative font-medium transition-colors duration-200 hover:text-red-500 group",
-                        isScrolled ? "text-gray-700" : "text-white/90",
-                      )}
-                    >
-                      {link.label}
-                      <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-red-500 transition-all duration-300 group-hover:w-full" />
-                    </Link>
-                  </motion.div>
-                ))}
+    <motion.nav
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className={cn(
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+        isScrolled ? "bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-100" : "bg-transparent",
+      )}
+    >
+      <div className="container mx-auto px-4">
+        <div className="flex items-center justify-between h-16 lg:h-20">
+          {/* Logo */}
+          <motion.div whileHover={{ scale: 1.05 }} className="flex items-center space-x-2">
+            <Link href="/" className="flex items-center space-x-2">
+              <div className="flex items-center justify-center">
+                <Image
+                  src="/Brotein Bistro.png"
+                  alt="Brotein Bistro Logo"
+                  width={150}
+                  height={150}
+                  loading="lazy"
+                  className="w-20 h-20 lg:w-24 lg:h-24 object-contain"
+                />
               </div>
-            </div>
+            </Link>
+          </motion.div>
 
-            {/* Desktop CTA Buttons */}
-            <div className="hidden lg:flex items-center space-x-4 z-10"> {/* Added z-10 */}
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-              >
-              </motion.div>
+          {/* Go Back Button (only shown on privacy page) */}
+          {isPrivacyPage && (
+            <Button
+              onClick={() => router.back()}
+              // variant={isScrolled ? "outline" : "ghost"}
+              className={cn(
+                "transition-all duration-300","text-white bg-red-500  hover:bg-gray-800",
+              )}
+            >
+              Go Back
+            </Button>
+          )}
 
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-              >
-                <Button
-                  onClick={() => setIsFranchiseModalOpen(true)}
-                  className="bg-red-500 hover:bg-black text-white transition-all duration-300 hover:shadow-lg hover:shadow-black-500/25"
-                >
-                  Get Franchise
-                </Button>
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-              >
-                <Button
-                  onClick={() => setIsGymModalOpen(true)}
-                  className="bg-red-500 hover:bg-black text-white transition-all duration-300 hover:shadow-lg hover:shadow-black-500/25"
-                >
-                  Be a Gym Partner
-                </Button>
-              </motion.div>
-            </div>
-
-            {/* Mobile Menu Button */}
+          {/* Mobile Menu Button (hidden on privacy page) */}
+          {!isPrivacyPage && (
             <motion.button
               whileTap={{ scale: 0.95 }}
               onClick={() => setIsOpen(!isOpen)}
@@ -132,10 +79,12 @@ export function Navbar() {
             >
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </motion.button>
-          </div>
+          )}
         </div>
+      </div>
 
-        {/* Mobile Menu (remains unchanged) */}
+      {/* Mobile Menu (hidden on privacy page) */}
+      {!isPrivacyPage && (
         <AnimatePresence>
           {isOpen && (
             <motion.div
@@ -147,77 +96,40 @@ export function Navbar() {
             >
               <div className="container mx-auto px-4 py-6">
                 <div className="flex flex-col space-y-4">
-                  {navLinks.map((link, index) => (
-                    <motion.div
-                      key={link.href}
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.3, delay: index * 0.05 }}
-                    >
-                      <Link
-                        href={link.href}
-                        onClick={() => setIsOpen(false)}
-                        className="block py-2 text-gray-700 font-medium hover:text-red-500 transition-colors duration-200"
-                      >
-                        {link.label}
-                      </Link>
-                    </motion.div>
-                  ))}
-
-                  <div className="pt-4 border-t border-gray-200 space-y-3">
-                    <Link href="https://order.broteinbistro.com/online-order"><Button
-                      variant="outline"
-                      className="w-full border-red-500 text-red-500 hover:bg-black hover:text-white"
-                    >
-                      <Phone className="mr-2 h-4 w-4" />
-                      Order Now
-                    </Button></Link>
-
-                    <Button
-                      onClick={() => {
-                        setIsFranchiseModalOpen(true)
-                        setIsOpen(false)
-                      }}
-                      className="w-full bg-red-500 hover:bg-black text-white"
-                    >
-                      Get Franchise
-                    </Button>
-                    <Button
-                      onClick={() => {
-                        setIsGymModalOpen(true)
-                        setIsOpen(false)
-                      }}
-                      className="w-full bg-red-500 hover:bg-black text-white"
-                    >
-                      Be a Gym Partner
-                    </Button>
-                  </div>
-
-                  {/* Contact Info in Mobile Menu */}
-                  <div className="pt-4 border-t border-gray-200 space-y-2 text-sm text-gray-600">
-                    <div className="flex items-center">
-                      <Phone className="mr-2 h-4 w-4 text-black" />
-                      <span>+91 99229 69673</span>
-                    </div>
-                    <div className="flex items-center">
-                      <MapPin className="mr-2 h-4 w-4 text-black" />
-                      <span>CCM & Gangapur Road, Nashik</span>
-                    </div>
-                    <div className="flex items-center">
-                      <Clock className="mr-2 h-4 w-4 text-black" />
-                      <span>Open Daily: 7 AM - 11 PM</span>
-                    </div>
-                  </div>
+                  <Link
+                    href="/"
+                    onClick={() => setIsOpen(false)}
+                    className="block py-2 text-gray-700 font-medium hover:text-red-500 transition-colors duration-200"
+                  >
+                    Home
+                  </Link>
+                  <Link
+                    href="#about"
+                    onClick={() => setIsOpen(false)}
+                    className="block py-2 text-gray-700 font-medium hover:text-red-500 transition-colors duration-200"
+                  >
+                    Why Us
+                  </Link>
+                  <Link
+                    href="#plans"
+                    onClick={() => setIsOpen(false)}
+                    className="block py-2 text-gray-700 font-medium hover:text-red-500 transition-colors duration-200"
+                  >
+                    Meal Plans
+                  </Link>
+                  <Link
+                    href="#locations"
+                    onClick={() => setIsOpen(false)}
+                    className="block py-2 text-gray-700 font-medium hover:text-red-500 transition-colors duration-200"
+                  >
+                    Locations
+                  </Link>
                 </div>
               </div>
             </motion.div>
           )}
         </AnimatePresence>
-      </motion.nav>
-
-      {/* Modals */}
-      <FranchiseModal isOpen={isFranchiseModalOpen} onClose={() => setIsFranchiseModalOpen(false)} />
-      <GymPartnershipModal isOpen={isGymModalOpen} onClose={() => setIsGymModalOpen(false)} />
-    </>
+      )}
+    </motion.nav>
   )
 }
