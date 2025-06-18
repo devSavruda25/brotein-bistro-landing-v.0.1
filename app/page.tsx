@@ -773,22 +773,23 @@ export default function Home() {
 
             {/* Enhanced navigation buttons */}
             <motion.button
-              onClick={prevDish}
-              className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white shadow-xl rounded-full p-4 hover:bg-gray-50 transition-all duration-300 hover:scale-110 z-10"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-            >
-              <ChevronLeft className="h-6 w-6 text-gray-700" />
-            </motion.button>
+  onClick={prevDish}
+  className="hidden md:flex absolute left-4 top-1/2 transform -translate-y-1/2 bg-white shadow-xl rounded-full p-4 md:p-4 p-2 hover:bg-gray-50 transition-all duration-300 hover:scale-110 z-10"
+  whileHover={{ scale: 1.1 }}
+  whileTap={{ scale: 0.9 }}
+>
+  <ChevronLeft className="h-6 w-6 md:h-6 md:w-6 h-4 w-4 text-gray-700" />
+</motion.button>
 
-            <motion.button
-              onClick={nextDish}
-              className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white shadow-xl rounded-full p-4 hover:bg-gray-50 transition-all duration-300 hover:scale-110 z-10"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-            >
-              <ChevronRight className="h-6 w-6 text-gray-700" />
-            </motion.button>
+<motion.button
+  onClick={nextDish}
+  className="hidden md:flex absolute right-4 top-1/2 transform -translate-y-1/2 bg-white shadow-xl rounded-full p-4 md:p-4 p-2 hover:bg-gray-50 transition-all duration-300 hover:scale-110 z-10"
+  whileHover={{ scale: 1.1 }}
+  whileTap={{ scale: 0.9 }}
+>
+  <ChevronRight className="h-6 w-6 md:h-6 md:w-6 h-4 w-4 text-gray-700" />
+</motion.button>
+
 
             {/* Enhanced dots indicator */}
             <div className="flex justify-center mt-8 space-x-3">
