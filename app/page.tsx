@@ -459,7 +459,7 @@ export default function Home() {
                     className="bg-transparent border border-white hover:bg-red-500 text-white hover:border-transparent rounded-full px-6 py-3 text-lg w-full group relative overflow-hidden transition-all duration-300"
                   >
                     <Phone className="w-6 h-6 mr-2" />
-                    <span className="relative z-10"><Link href="/"> Order Now</Link></span>
+                    <span className="relative z-10"><Link href="https://order.broteinbistro.com/online-order"> Order Now</Link></span>
                     <motion.div
                       className="absolute inset-0 bg-white/20"
                       initial={{ scale: 0, opacity: 0 }}
@@ -753,7 +753,7 @@ export default function Home() {
 
                           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                             <a
-                              href="https://broteinbistro.com/"
+                              href="https://order.broteinbistro.com/online-order"
                               target="_blank"
                               rel="noopener noreferrer"
                             >

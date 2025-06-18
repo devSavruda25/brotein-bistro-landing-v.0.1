@@ -165,7 +165,7 @@ export function Navbar() {
                   ))}
 
                   <div className="pt-4 border-t border-gray-200 space-y-3">
-                    <Link href="http://order.broteinbistro.com/"><Button
+                    <Link href="https://order.broteinbistro.com/online-order"><Button
                       variant="outline"
                       className="w-full border-red-500 text-red-500 hover:bg-black hover:text-white"
                     >
