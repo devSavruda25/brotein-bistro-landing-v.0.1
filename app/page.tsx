@@ -751,7 +751,7 @@ export default function Home() {
                             </motion.div>
                           </div>
 
-                          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                          {/* <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                             <a
                               href="https://order.broteinbistro.com/online-order"
                               target="_blank"
@@ -762,7 +762,7 @@ export default function Home() {
                               </Button>
                             </a>
 
-                          </motion.div>
+                          </motion.div> */}
                         </div>
                       </div>
                     </motion.div>
