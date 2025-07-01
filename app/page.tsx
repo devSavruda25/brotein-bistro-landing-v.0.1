@@ -8,10 +8,9 @@ import Image from "next/image"
 import Link from "next/link"
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion"
 import { useInView as useInViewHook } from "react-intersection-observer"
-// import hero from "@/public/hero.jpg"
-// import logo from "@/public/Brotein Bistro.png"
-import footerlogo from "@/public/logo.png"
 
+import footerlogo from "@/public/logo.png"
+import { FranchiseSection } from "../components/franchise-section"
 import {
   ArrowRight,
   ChevronLeft,
@@ -35,6 +34,7 @@ import {
   Heart,
   Award,
   TrendingUp,
+  HandPlatter,
 } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
@@ -46,16 +46,16 @@ import { Label } from "@/components/ui/label"
 import { cn } from "@/lib/utils"
 import { Navbar } from "@/components/navbar"
 import { MealLoader } from "@/components/meal-loader"
-// import dish1 from "@/public/pizza.jpg"
-// import dish2 from "@/public/wrap1.jpg"
-// import dish3 from "@/public/burgar.jpg"
-// import dish4 from "@/public/creamy makhani meal bowl.jpg"
+
 import { FranchiseModal } from "@/components/franchise-modal"
 import { GymPartnershipModal } from "@/components/gym-modal"
 
-// import maleuser from "@/public/maleuser.png"
-// import femaleuser from "@/public/femaleuser.png"
+
 export default function Home() {
+
+  //new luanch state 
+
+
   const [isLoading, setIsLoading] = useState(true)
   const [currentDish, setCurrentDish] = useState(0)
   const [currentReview, setCurrentReview] = useState(0)
@@ -72,6 +72,11 @@ export default function Home() {
     const timer = setTimeout(() => {
       setIsLoading(false)
     }, 2000) // 4 seconds loading
+    console.log(
+      "%c👨‍💻 Designed by Prathamesh Devrukhakar\n📸 Instagram: https://instagram.com/prathamesh_d_1",
+      "color: teal; font-size: 13px; font-family: monospace;"
+    );
+
 
     return () => clearTimeout(timer)
   }, [])
@@ -154,7 +159,7 @@ export default function Home() {
 
   const plans = [
     {
-      name: "Base Plan",
+      name: "Brotein Basic",
       price: "₹6,899",
       duration: "40 Days",
       meals: "30 Meals",
@@ -173,7 +178,7 @@ export default function Home() {
       savings: "1 Meal/day",
     },
     {
-      name: "Standard Plan",
+      name: "Brotein Active",
       price: "₹7,899",
       duration: "40 Days",
       meals: "30 Meals",
@@ -192,7 +197,7 @@ export default function Home() {
       savings: "1 Meal/day",
     },
     {
-      name: "Premium Plan",
+      name: "Brotein Pro",
       price: "₹8,899",
       duration: "40 Days",
       meals: "30 Meals",
@@ -211,7 +216,7 @@ export default function Home() {
       savings: "1 Meal/day",
     },
     {
-      name: "Elite Plan",
+      name: "Brotein Prime",
       price: "₹9,999",
       duration: "40 Days",
       meals: "30 Meals",
@@ -225,6 +230,44 @@ export default function Home() {
         "Free delivery up to 4 km",
         "Dine-in option FREE",
         "2 Meals/day upgrade available at ₹18,999",
+      ],
+      popular: false,
+      savings: "1 Meal/day",
+    },
+    {
+      name: "Brotein X",
+      price: "₹11,999",
+      duration: "40 Days",
+      meals: "30 Meals",
+      features: [
+        "300g Protein Quantity",
+        "65g Guaranteed Protein",
+        "Meal Option (Veg / Non-Veg)",
+        "Veg Choice: Paneer / Tofu / Chickpea",
+        "Non-Veg: Chicken (Included)",
+        "Other non-veg (Basa, Prawns) is chargeable",
+        "Free delivery up to 4 km",
+        "Dine-in option FREE",
+        "2 Meals/day upgrade available at ₹21,999",
+      ],
+      popular: false,
+      savings: "1 Meal/day",
+    },
+    {
+      name: "Brotein Titan",
+      price: "₹13,999",
+      duration: "40 Days",
+      meals: "30 Meals",
+      features: [
+        "350g Protein Quantity",
+        "65g Guaranteed Protein",
+        "Meal Option (Veg / Non-Veg)",
+        "Veg Choice: Paneer / Tofu / Chickpea",
+        "Non-Veg: Chicken (Included)",
+        "Other non-veg (Basa, Prawns) is chargeable",
+        "Free delivery up to 4 km",
+        "Dine-in option FREE",
+        "2 Meals/day upgrade available at ₹23,999",
       ],
       popular: false,
       savings: "1 Meal/day",
@@ -483,7 +526,7 @@ export default function Home() {
             >
               {[
                 { number: "100K+", label: "Happy Customers", icon: Heart },
-                { number: "150+", label: "Protein Dishes", icon: Award },
+                { number: "150+", label: "Protein Dishes", icon: HandPlatter },
                 { number: "2", label: "Locations", icon: MapPin },
               ].map((stat, index) => (
                 <motion.div
@@ -494,7 +537,7 @@ export default function Home() {
                   transition={{ delay: 1.4 + index * 0.2, type: "spring" }}
                 >
                   <div className="flex items-center justify-center mb-2">
-                    <stat.icon className="h-5 w-5 text-green-400 mr-2" />
+                    <stat.icon className="h-6 w-6 text-green-400 mr-2" />
                     <span className="text-2xl font-bold text-white">{stat.number}</span>
                   </div>
                   <span className="text-sm text-white/70">{stat.label}</span>
@@ -626,7 +669,7 @@ export default function Home() {
                       <div className="flex items-start space-x-4 relative z-10">
                         <motion.div
                           className="flex-shrink-0"
-                          whileHover={{ rotate: 360 }}
+                         
                           transition={{ duration: 0.6 }}
                         >
                           <div
@@ -752,17 +795,17 @@ export default function Home() {
                           </div>
 
                           {/* <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                            <a
-                              href="https://order.broteinbistro.com/online-order"
-                              target="_blank"
-                              rel="noopener noreferrer"
-                            >
-                              <Button className="bg-red-500 hover:bg-black rounded-full shadow-lg hover:shadow-green-500/25 transition-all duration-300">
-                                Order Now
-                              </Button>
-                            </a>
+                              <a
+                                href="https://order.broteinbistro.com/online-order"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                              >
+                                <Button className="bg-red-500 hover:bg-black rounded-full shadow-lg hover:shadow-green-500/25 transition-all duration-300">
+                                  Order Now
+                                </Button>
+                              </a>
 
-                          </motion.div> */}
+                            </motion.div> */}
                         </div>
                       </div>
                     </motion.div>
@@ -1056,7 +1099,7 @@ export default function Home() {
                                   delay: 0.5 + index * 0.1 + featureIndex * 0.05,
                                 }}
                               >
-                                <motion.div whileHover={{ scale: 1.2, rotate: 360 }} transition={{ duration: 0.3 }}>
+                                <motion.div whileHover={{ scale: 1.2}} transition={{ duration: 0.3 }}>
                                   <CheckCircle className="h-5 w-5 text-red-500 mr-3 flex-shrink-0" />
                                 </motion.div>
                                 <span className="text-gray-600">{feature}</span>
@@ -1077,7 +1120,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-
+      <FranchiseSection />
 
       {/* Enhanced Find Us Map Section */}
       <section id="locations" ref={mapRef} className="py-20 bg-gray-50 relative overflow-hidden">
@@ -1175,13 +1218,13 @@ export default function Home() {
                           </motion.div>
                         </div>
                         {/* <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                          <Button
-                            variant="outline"
-                            className="mt-4 w-full group-hover:border-red-500 group-hover:text-red-600 transition-all duration-300"
-                          >
-                            Get Directions
-                          </Button>
-                        </motion.div> */}
+                            <Button
+                              variant="outline"
+                              className="mt-4 w-full group-hover:border-red-500 group-hover:text-red-600 transition-all duration-300"
+                            >
+                              Get Directions
+                            </Button>
+                          </motion.div> */}
                       </div>
                     </CardContent>
                   </Card>
@@ -1258,15 +1301,15 @@ export default function Home() {
                     Get Franchise
                   </button>
                 </motion.li>
-                
-                  <motion.li whileHover={{ x: 5 }} transition={{ duration: 0.2 }}><Link href="/privacy-policy">
-                    <button
-                      className="text-left text-gray-400 hover:text-white transition-colors duration-200 w-full"
-                    >
-                      Privacy Policy
-                    </button></Link>
-                  </motion.li>
-                
+
+                <motion.li whileHover={{ x: 5 }} transition={{ duration: 0.2 }}><Link href="/privacy-policy">
+                  <button
+                    className="text-left text-gray-400 hover:text-white transition-colors duration-200 w-full"
+                  >
+                    Privacy Policy
+                  </button></Link>
+                </motion.li>
+
 
               </ul>
 

@@ -19,6 +19,7 @@ export function Navbar() {
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50)
+      
     }
 
     window.addEventListener("scroll", handleScroll)
@@ -29,7 +30,9 @@ export function Navbar() {
     { href: "/", label: "Home" },
     { href: "#about", label: "Why Us" },
     { href: "#plans", label: "Meal Plans" },
+     { href: "#franchise", label:"Express"},
     { href: "#locations", label: "Locations" },
+   
   ]
 
   return (
@@ -43,6 +46,8 @@ export function Navbar() {
           isScrolled ? "bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-100" : "bg-transparent",
         )}
       >
+
+        
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-16 lg:h-20 relative"> {/* Added 'relative' here */}
             {/* Logo */}
