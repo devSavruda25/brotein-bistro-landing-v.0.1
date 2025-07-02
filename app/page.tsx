@@ -978,148 +978,155 @@ export default function Home() {
       </section>
 
       {/* Enhanced Meal Plans */}
-      <section id="plans" ref={plansRef} className="py-20 bg-white relative overflow-hidden">
-        <div className="absolute top-0 left-0 w-64 h-64 bg-yellow-50 rounded-full -translate-y-32 -translate-x-32 opacity-50" />
+      <section id="plans" ref={plansRef} className="py-12 md:py-20 bg-white relative overflow-hidden">
+  <div className="absolute top-0 left-0 w-64 h-64 bg-yellow-50 rounded-full -translate-y-32 -translate-x-32 opacity-50" />
 
-        <div className="container relative z-10">
+  <div className="container relative z-10 px-4 sm:px-6">
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      animate={plansInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+      transition={{ duration: 0.8 }}
+      className="text-center mb-8 md:mb-12"
+    >
+      <motion.div
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={plansInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+        className="inline-flex items-center bg-yellow-50 px-4 py-2 rounded-full mb-4"
+      >
+        <Award className="h-4 w-4 text-yellow-500 mr-2" />
+        <span className="text-yellow-700 font-medium text-sm md:text-base">Flexible Plans</span>
+      </motion.div>
+
+      <h2 className="text-3xl md:text-5xl font-bold mb-4 md:mb-6">
+        Choose Your <span className="text-red-500">Meal Plan</span>
+      </h2>
+      <p className="text-base md:text-xl text-gray-600 max-w-3xl mx-auto">
+        Flexible plans designed to fit your lifestyle and fitness goals
+      </p>
+    </motion.div>
+
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
+      {plans.map((plan, index) => {
+        const isLastSingle = plans.length % 3 === 1 && index === plans.length - 1;
+        return (
           <motion.div
+            key={plan.name}
             initial={{ opacity: 0, y: 30 }}
             animate={plansInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-12"
+            transition={{ duration: 0.8, delay: index * 0.1 }}
+            className={cn(
+              "relative",
+              isLastSingle ? "lg:col-span-1 lg:col-start-2" : "",
+              // On mobile, make popular plan take full width if it's in a single column
+              plan.popular ? "sm:col-span-2 lg:col-span-1" : ""
+            )}
           >
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={plansInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="inline-flex items-center bg-yellow-50 px-4 py-2 rounded-full mb-4"
+            <motion.div 
+              whileHover={{ y: -10, scale: 1.02 }} 
+              whileTap={{ scale: 0.98 }}
+              transition={{ duration: 0.3 }}
             >
-              <Award className="h-4 w-4 text-yellow-500 mr-2" />
-              <span className="text-yellow-700 font-medium">Flexible Plans</span>
-            </motion.div>
-
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Choose Your <span className="text-red-500">Meal Plan</span>
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Flexible plans designed to fit your lifestyle and fitness goals
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {plans.map((plan, index) => {
-              const isLastSingle = plans.length % 3 === 1 && index === plans.length - 1;
-              return (
-                <motion.div
-                  key={plan.name}
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={plansInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-                  transition={{ duration: 0.8, delay: index * 0.1 }}
-                  className={cn("relative", isLastSingle ? "md:col-span-1 md:col-start-2" : "")}
-                >
-                  <motion.div whileHover={{ y: -10, scale: 1.02 }} transition={{ duration: 0.3 }}>
-                    <Card
-                      className={cn(
-                        "overflow-hidden transition-all duration-500 hover:shadow-2xl relative",
-                        plan.popular
-                          ? "border-green-500 shadow-xl scale-105 ring-2 ring-green-200"
-                          : "shadow-lg hover:shadow-xl"
-                      )}
-                    >
-                      {plan.popular && (
-                        <motion.div
-                          className="absolute top-0 left-0 right-0"
-                          initial={{ y: -20, opacity: 0 }}
-                          animate={{ y: 0, opacity: 1 }}
-                          transition={{ delay: 0.3 }}
-                        >
-                          <div className="bg-gradient-to-r from-green-500 to-green-600 text-white text-center py-3 text-sm font-medium relative overflow-hidden">
-                            <motion.div
-                              className="absolute inset-0 bg-white/20"
-                              animate={{ x: ["-100%", "100%"] }}
-                              transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, repeatDelay: 3 }}
-                            />
-                            <span className="relative z-10 flex items-center justify-center">
-                              <Sparkles className="mr-2 h-4 w-4" />
-                              Most Popular Choice
-                            </span>
-                          </div>
-                        </motion.div>
-                      )}
-                      {/*  */}
-                      {plan.savings && (
-                        <motion.div
-                          className="absolute top-4 right-4 z-10"
-                          initial={{ scale: 0, rotate: -180 }}
-                          animate={{ scale: 1, rotate: 0 }}
-                          transition={{ delay: 0.5, type: "spring" }}
-                        >
-                          <Badge className="bg-orange-500 text-white shadow-lg">{plan.savings}</Badge>
-                        </motion.div>
-                      )}
-
-                      <CardContent className={cn("p-8 relative", plan.popular ? "pt-16" : "")}>
-                        {plan.popular && (
-                          <div className="absolute inset-0 bg-gradient-to-br from-green-50 to-blue-50 opacity-30" />
-                        )}
-
-                        <div className="relative z-10">
-                          <div className="text-center mb-8">
-                            <motion.h3
-                              className="text-2xl font-bold mb-2"
-                              initial={{ opacity: 0, y: 10 }}
-                              animate={plansInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
-                              transition={{ delay: 0.3 + index * 0.1 }}
-                            >
-                              {plan.name}
-                            </motion.h3>
-
-                            <motion.div
-                              className="text-4xl font-bold text-red-500 mb-1"
-                              initial={{ opacity: 0, scale: 0.8 }}
-                              animate={plansInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
-                              transition={{ delay: 0.4 + index * 0.1 }}
-                            >
-                              {plan.price}
-                            </motion.div>
-
-                            <div className="text-gray-500">
-                              {plan.duration} • {plan.meals}
-                            </div>
-                          </div>
-
-                          <ul className="space-y-4 mb-8">
-                            {plan.features.map((feature, featureIndex) => (
-                              <motion.li
-                                key={featureIndex}
-                                className="flex items-center"
-                                initial={{ opacity: 0, x: -10 }}
-                                animate={plansInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -10 }}
-                                transition={{
-                                  delay: 0.5 + index * 0.1 + featureIndex * 0.05,
-                                }}
-                              >
-                                <motion.div whileHover={{ scale: 1.2}} transition={{ duration: 0.3 }}>
-                                  <CheckCircle className="h-5 w-5 text-red-500 mr-3 flex-shrink-0" />
-                                </motion.div>
-                                <span className="text-gray-600">{feature}</span>
-                              </motion.li>
-                            ))}
-                          </ul>
-
-                          <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                            {/* Add button or call to action here if needed */}
-                          </motion.div>
-                        </div>
-                      </CardContent>
-                    </Card>
+              <Card
+                className={cn(
+                  "overflow-hidden transition-all duration-500 hover:shadow-2xl relative",
+                  plan.popular
+                    ? "border-green-500 shadow-xl lg:scale-105 ring-2 ring-green-200"
+                    : "shadow-lg hover:shadow-xl"
+                )}
+              >
+                {plan.popular && (
+                  <motion.div
+                    className="absolute top-0 left-0 right-0"
+                    initial={{ y: -20, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ delay: 0.3 }}
+                  >
+                    <div className="bg-gradient-to-r from-green-500 to-green-600 text-white text-center py-2 md:py-3 text-xs md:text-sm font-medium relative overflow-hidden">
+                      <motion.div
+                        className="absolute inset-0 bg-white/20"
+                        animate={{ x: ["-100%", "100%"] }}
+                        transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, repeatDelay: 3 }}
+                      />
+                      <span className="relative z-10 flex items-center justify-center">
+                        <Sparkles className="mr-1 md:mr-2 h-3 w-3 md:h-4 md:w-4" />
+                        Most Popular Choice
+                      </span>
+                    </div>
                   </motion.div>
-                </motion.div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
+                )}
+                
+                {plan.savings && (
+                  <motion.div
+                    className="absolute top-3 md:top-4 right-3 md:right-4 z-10"
+                    initial={{ scale: 0, rotate: -180 }}
+                    animate={{ scale: 1, rotate: 0 }}
+                    transition={{ delay: 0.5, type: "spring" }}
+                  >
+                    <Badge className="bg-orange-500 text-white shadow-lg text-xs md:text-sm">
+                      {plan.savings}
+                    </Badge>
+                  </motion.div>
+                )}
+
+                <CardContent className={cn("p-6 md:p-8 relative", plan.popular ? "pt-14 md:pt-16" : "")}>
+                  {plan.popular && (
+                    <div className="absolute inset-0 bg-gradient-to-br from-green-50 to-blue-50 opacity-30" />
+                  )}
+
+                  <div className="relative z-10">
+                    <div className="text-center mb-6 md:mb-8">
+                      <motion.h3
+                        className="text-xl md:text-2xl font-bold mb-2"
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={plansInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
+                        transition={{ delay: 0.3 + index * 0.1 }}
+                      >
+                        {plan.name}
+                      </motion.h3>
+
+                      <motion.div
+                        className="text-3xl md:text-4xl font-bold text-red-500 mb-1"
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={plansInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+                        transition={{ delay: 0.4 + index * 0.1 }}
+                      >
+                        {plan.price}
+                      </motion.div>
+
+                      <div className="text-sm md:text-base text-gray-500">
+                        {plan.duration} • {plan.meals}
+                      </div>
+                    </div>
+
+                    <ul className="space-y-3 md:space-y-4 mb-6 md:mb-8">
+                      {plan.features.map((feature, featureIndex) => (
+                        <motion.li
+                          key={featureIndex}
+                          className="flex items-start"
+                          initial={{ opacity: 0, x: -10 }}
+                          animate={plansInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -10 }}
+                          transition={{
+                            delay: 0.5 + index * 0.1 + featureIndex * 0.05,
+                          }}
+                        >
+                          <motion.div whileHover={{ scale: 1.2}} transition={{ duration: 0.3 }}>
+                            <CheckCircle className="h-4 w-4 md:h-5 md:w-5 text-red-500 mr-2 md:mr-3 mt-0.5 flex-shrink-0" />
+                          </motion.div>
+                          <span className="text-sm md:text-base text-gray-600">{feature}</span>
+                        </motion.li>
+                      ))}
+                    </ul>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+          </motion.div>
+        );
+      })}
+    </div>
+  </div>
+</section>
       <FranchiseSection />
 
       {/* Enhanced Find Us Map Section */}

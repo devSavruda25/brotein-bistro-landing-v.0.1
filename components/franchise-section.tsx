@@ -23,6 +23,7 @@ import {
   Dumbbell,
   Heart,
   Sparkles,
+  
 } from "lucide-react"
 
 import { Card, CardContent } from "@/components/ui/card"
@@ -604,7 +605,7 @@ export function FranchiseSection() {
               
               { icon: Instagram, label: "@broteinbistro" },
               // { icon: Globe, label: "www.broteinbistro.in" },
-              { icon: Mail, label: "broteinbistro@gmail.com" },
+              { icon: Mail, label: "broteinbistro@gmail.com   " },
             ].map((contact, index) => (
               <motion.div
                 key={contact.label}
@@ -623,7 +624,7 @@ export function FranchiseSection() {
                       >
                         <contact.icon className="h-6 w-6 sm:h-8 sm:w-8 text-red-500 mx-auto" />
                       </motion.div>
-                      <p className="text-gray-700 text-xs sm:text-sm md:text-base font-semibold leading-tight">
+                      <p className="text-gray-700 text-xs sm:text-sm md:text-base font-semibold leading-tight ">
                         {contact.label}
                       </p>
                     </div>
